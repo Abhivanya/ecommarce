@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+    background-color: whitesmoke;
+}
 
 @media (max-width:640px) {
     a.active {
