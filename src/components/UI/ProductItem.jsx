@@ -1,9 +1,9 @@
 import React, { useContext } from "react";
-import { shopConext } from "../../context/shopContext";
+import { shopContext } from "../../context/shopContext";
 import { Link } from "react-router-dom";
 
 const ProductItem = ({ id, image, name, price }) => {
-  const { currency } = useContext(shopConext);
+  const { currency } = useContext(shopContext);
   return (
     <Link to={`/product/${id}`} className="text-gray-700 cursor-pointer">
       <div className="overflow-hidden">
