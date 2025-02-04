@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { assets } from "../assets/frontend_assets/assets";
+import { shopContext } from "../context/shopContext";
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { setShowSearch, getCartCount } = useContext(shopContext);
   const setNavStyle = ({ isActive }) => {
     return isActive
       ? "flex flex-col items-center gap-1 border-b-gray-400 border-b-2"
@@ -29,6 +31,7 @@ const Navbar = () => {
       </ul>
       <div className="flex items-center gap-6">
         <img
+          onClick={() => setShowSearch(true)}
           src={assets.search_icon}
           alt="search icon"
           className="w-5 cursor-pointer"
@@ -54,7 +57,7 @@ const Navbar = () => {
             className="w-5 min-w-5 cursor-pointer"
           />
           <p className="absolute w-4 right-[-5px] bottom-[-5px] text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px] ">
-            n
+            {getCartCount()}
           </p>
         </NavLink>
         <img
